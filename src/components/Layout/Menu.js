@@ -39,7 +39,7 @@ const Menu = () => (
                 <div>
                     {data.wordPress.menu.menuItems.nodes.map(item => {
                      const checkUrl = () =>{
-                        const wpUrl = process.env.GATSBY_URL
+                        const wpUrl = 'https://api-jr-wnw.dev-app-bit.com'
                         if( item.url != null ){
                             return decodeURI( item.url.replace(wpUrl,``))
                         }else{
