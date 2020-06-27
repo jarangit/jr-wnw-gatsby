@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery, Link } from 'gatsby'
 
-console.log(process.env.GATSBY_URL)
+console.log(process.env.GATSBY_API_URL)
 const MENU_QUERY = graphql`
  {
   wordPress {

@@ -1,7 +1,9 @@
 const _ = require(`lodash`)
 const Promise = require(`bluebird`)
 const path = require(`path`)
-
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 // Implement the Gatsby API “createPages”. This is
 // called after the Gatsby bootstrap is finished so you have
 // access to any information necessary to programmatically
@@ -15,7 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const result =  await graphql(`
     {
         wordPress {
-          pages(first: 100) {
+          pages (first: 100){
             nodes {
               id
               slug
