@@ -15,7 +15,7 @@ module.exports = {
       options: {
         typeName: `WordPress`,
         fieldName: `wordPress`,
-        url: process.env.GATSBY_API_URL,
+        url: `${process.env.GATSBY_API_URL}`,
         // refetchInterval:60
        },
       },
