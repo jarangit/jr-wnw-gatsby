@@ -53,10 +53,19 @@ const Menu = () => (
                                     <li>
                                         <Link key = {item.id} to = {checkUrl()} > {item.label} </Link>
                                         {item.childItems.nodes.map(child => {
+                                            const checkUrlChild = () =>{
+                                                const wpUrlChild = 'https://api-jr-wnw.dev-app-bit.com'
+                                                if( child.url != null ){
+                                                    return decodeURI( child.url.replace(wpUrlChild,``))
+                                                }else{
+                                                    return '/'
+                                                }
+                                             }
+                                            console.log(child)
                                             return(
                                                 <ul>
                                                     <li>
-                                                        {child.label}
+                                                        <Link key = {child.id} to = {checkUrlChild()} > {child.label} </Link>
                                                     </li>
                                                 </ul>
                                             )

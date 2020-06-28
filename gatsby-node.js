@@ -22,6 +22,22 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               slug
               title
+              content
+            }
+          }
+        }
+        wordPress {
+          posts (first: 100){
+            nodes {
+              id
+              title
+              slug
+              uri
+              content
+              featuredImage {
+                altText
+                mediaItemUrl
+              }
             }
           }
         }
@@ -41,4 +57,16 @@ exports.createPages = async ({ graphql, actions }) => {
             context: edge,
           })
         })
+
+          //post
+          const PostTemplate = path.resolve(`src/templates/post.js`)
+          result.data.wordPress.posts.nodes.forEach(edge => {
+              const deCode = decodeURI(edge.slug);
+              // cat.slug +'/'+
+              createPage({
+                path: deCode,
+                component: PostTemplate,
+                context: edge,
+              })
+            })
 }
