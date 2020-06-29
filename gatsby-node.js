@@ -41,6 +41,23 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+        wordPress {
+          productCategories(first: 100) {
+            nodes {
+              id
+              name
+              slug
+              description
+              products(first: 100) {
+                nodes {
+                  name
+                  slug
+                  id
+                }
+              }
+            }
+          }
+        }
       }
        
       `)
@@ -69,4 +86,17 @@ exports.createPages = async ({ graphql, actions }) => {
                 context: edge,
               })
             })
+
+
+             //ProductCategory
+          const ProductCatTemplate = path.resolve(`src/templates/product-Category.js`)
+          result.data.wordPress.productCategories.nodes.forEach(edge => {
+
+            const deCodeMain = decodeURI(edge.slug);
+            createPage({
+              path: '/ร้านพวงหรีด/'+deCodeMain,
+              component: ProductCatTemplate,
+              context: edge,
+            })
+          })
 }
