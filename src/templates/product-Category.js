@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ProductCatTemplate = (data) => {
-    console.log(data)
     const {id, name, slug, products, description} = data.pageContext
     return(
         <div>
@@ -13,7 +12,7 @@ const ProductCatTemplate = (data) => {
                 <h2> PRODUCT </h2>
                 {products.nodes.map(items => (
                     <div> 
-                        <img src = {items.image.mediaItemUrl} />
+                        {/* <img src = {items.image.mediaItemUrl} /> */}
                         <strong> {items.name}  </strong>
                     </div>
                    
