@@ -54,6 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     sku
                     image {
                       mediaItemUrl
+                      altText
                     }
                   }
                 }

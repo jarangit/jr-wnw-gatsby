@@ -1,7 +1,9 @@
 import React from 'react'
+import ShowProduct from '../components/Product/ShowProduct'
 
 const ProductCatTemplate = (data) => {
     const {id, name, slug, products, description} = data.pageContext
+   
     return(
         <div>
             <div>
@@ -10,13 +12,7 @@ const ProductCatTemplate = (data) => {
             </div>
             <div>
                 <h2> PRODUCT </h2>
-                {products.nodes.map(items => (
-                    <div> 
-                        {/* <img src = {items.image.mediaItemUrl} /> */}
-                        <strong> {items.name}  </strong>
-                    </div>
-                   
-                ))}
+                <ShowProduct data = {products}/>                
             </div>
         </div>
     )
