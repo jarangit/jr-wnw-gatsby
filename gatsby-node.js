@@ -34,10 +34,6 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
               uri
               content
-              featuredImage {
-                altText
-                mediaItemUrl
-              }
             }
           }
         }
@@ -48,16 +44,60 @@ exports.createPages = async ({ graphql, actions }) => {
               name
               slug
               description
-              products(first: 100) {
+              products {
                 nodes {
-                  name
-                  slug
+                  ... on WordPress_SimpleProduct {
+                    id
+                    name
+                    price
+                    slug
+                    sku
+                    image {
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+              }
+            }
+          }
+          wordPress {
+            products(first: 1000) {
+              nodes {
+                ... on WordPress_SimpleProduct {
                   id
+                  name
+                  shortDescription
+                  date
+                  price
+                  salePrice
+                  sku
+                  slug
+                  status
+                  image {
+                    altText
+                    mediaItemUrl
+                  }
+                }
+                ... on WordPress_VariableProduct {
+                  id
+                  name
+                  shortDescription
+                  date
+                  price
+                  salePrice
+                  sku
+                  slug
+                  status
+                  image {
+                    altText
+                    mediaItemUrl
+                  }
                 }
               }
             }
           }
-        }
+
       }
        
       `)
@@ -99,4 +139,15 @@ exports.createPages = async ({ graphql, actions }) => {
               context: edge,
             })
           })
+
+           // SingleProduct
+           const ProductSingleTemplate = path.resolve(`src/templates/product-Single.js`)
+           result.data.wordPress.products.nodes.forEach(edge => {
+            const deCode = decodeURI("/พวงหรีด/"+ edge.slug);
+            createPage({
+              path: deCode,
+              component: ProductSingleTemplate,
+              context: edge,
+            })
+           })
 }

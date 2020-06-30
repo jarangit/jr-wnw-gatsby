@@ -10,8 +10,13 @@ const ProductCatTemplate = (data) => {
                 <div dangerouslySetInnerHTML={{__html: description}}/>
             </div>
             <div>
+                <h2> PRODUCT </h2>
                 {products.nodes.map(items => (
-                    <div> {items.name} </div>
+                    <div> 
+                        <img src = {items.image.mediaItemUrl} />
+                        <strong> {items.name}  </strong>
+                    </div>
+                   
                 ))}
             </div>
         </div>
