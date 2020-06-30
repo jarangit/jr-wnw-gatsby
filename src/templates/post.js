@@ -1,7 +1,7 @@
 import React from 'react'
 
 const PostTemplate  = (data) => {
-    console.log(data)
+    // console.log(data)
     const {title, slug, id, content} = data.pageContext
     return(
         <div>

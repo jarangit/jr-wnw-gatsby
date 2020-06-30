@@ -10,12 +10,10 @@ const ShowProduct = ({ data }) => {
         </div>
     )
 }
-
-// const ID = 'dGVybToxMDMx'
 // export const query = graphql`
-//   {
+//  ($id: ID!) {
 //     wordPress {
-//       productCategory(id: ID) {
+//       productCategory(id: $id) {
 //         products(first: 500) {
 //           nodes {
 //             ... on WordPress_SimpleProduct {
@@ -27,7 +25,6 @@ const ShowProduct = ({ data }) => {
 //       }
 //     }
 //   }
-  
 // `
 
 export default ShowProduct

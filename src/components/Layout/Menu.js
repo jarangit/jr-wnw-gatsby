@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, StaticQuery, Link } from 'gatsby'
 
-console.log(process.env.GATSBY_API_URL)
+// console.log(process.env.GATSBY_API_URL)
 const MENU_QUERY = graphql`
  {
   wordPress {
@@ -33,7 +33,7 @@ const Menu = () => (
     <StaticQuery
         query = {MENU_QUERY}
         render={data => {
-            console.log(data)
+            // console.log(data)
             
             return(
                 <div>
@@ -46,7 +46,7 @@ const Menu = () => (
                             return '/'
                         }
                      }
-                     console.log(checkUrl())
+                    //  console.log(checkUrl())
                         return(
                             <div>
                                 <ul>
@@ -61,7 +61,7 @@ const Menu = () => (
                                                     return '/'
                                                 }
                                              }
-                                            console.log(child)
+                                            // console.log(child)
                                             return(
                                                 <ul>
                                                     <li>
