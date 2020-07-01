@@ -3,7 +3,7 @@ import ShowProduct from '../components/Product/ShowProduct'
 
 const ProductCatTemplate = (data) => {
     const {id, name, slug, products, description} = data.pageContext
-   
+   console.log(slug)
     return(
         <div>
             <div>

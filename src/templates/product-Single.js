@@ -1,6 +1,7 @@
 import React from 'react'
 
 const ProductSingleTemplate = (data) => {
+    console.log(data)
     const {id, name, slug, sku, image, price, shortDescription} = data.pageContext
     return(
         <div>
@@ -10,6 +11,5 @@ const ProductSingleTemplate = (data) => {
             <div dangerouslySetInnerHTML={{__html: shortDescription}}/>
         </div>
     )
-}
-
-export default ProductSingleTemplate
+} 
+export default ProductSingleTemplate 

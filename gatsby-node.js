@@ -144,11 +144,15 @@ exports.createPages = async ({ graphql, actions }) => {
            // SingleProduct
            const ProductSingleTemplate = path.resolve(`src/templates/product-Single.js`)
            result.data.wordPress.products.nodes.forEach(edge => {
-            const deCode = decodeURI("/พวงหรีด/"+ edge.slug);
-            createPage({
-              path: deCode,
-              component: ProductSingleTemplate,
-              context: edge,
-            })
+             if(edge.slug === undefined){
+               return
+             }else{
+               const deCode = decodeURI("/พวงหรีด/"+ edge.slug);
+               createPage({
+                 path: deCode,
+                 component: ProductSingleTemplate,
+                 context: edge,
+               })
+             }
            })
 }
