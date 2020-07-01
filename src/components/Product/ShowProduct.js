@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { StaticQuery,useStaticQuery, graphql } from "gatsby"
+import { StaticQuery,useStaticQuery, graphql, Link } from "gatsby"
 
 
 const ShowProduct = (props) => {
@@ -9,14 +9,15 @@ const ShowProduct = (props) => {
  return(
    <div>
      {props.productsData.nodes.map( items => {
+       const {id, slug, name, image, price} = items
        const ShowImg = () => {
         if(Object.entries(items).length === 0){
           return 
         }else{
           return(
             <div>
-              {items.name}
-              <img src = {items.image.mediaItemUrl} alt = {items.image.altText} />
+              <Link to = {'/พวงหรีด/' + slug}> {name} </Link>
+              <img src = {image.mediaItemUrl} alt = {items.image.altText} />
             </div>
           )
         }
