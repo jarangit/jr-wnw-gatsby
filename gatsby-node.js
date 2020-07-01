@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
               name
               slug
               description
-              products {
+              products (first: 20){
                 nodes {
                   ... on WordPress_SimpleProduct {
                     id

@@ -1,30 +1,35 @@
 import React from 'react'
 
-import { graphql } from "gatsby"
+import { StaticQuery,useStaticQuery, graphql } from "gatsby"
 
-const ShowProduct = ({ data }) => {
-    // console.log(data)
-    return(
-        <div>
-            this product
-        </div>
-    )
+
+const ShowProduct = (props) => {
+  console.log(props.productsData)
+  
+ return(
+   <div>
+     {props.productsData.nodes.map( items => {
+       const ShowImg = () => {
+        if(Object.entries(items).length === 0){
+          return 
+        }else{
+          return(
+            <div>
+              {items.name}
+              <img src = {items.image.mediaItemUrl} alt = {items.image.altText} />
+            </div>
+          )
+        }
+      }
+      //  console.log(items.image.altText)
+       return(
+         <div>
+            {ShowImg()}
+         </div>
+       )
+     })}
+   </div>
+ )
 }
-// export const query = graphql`
-//  ($id: ID!) {
-//     wordPress {
-//       productCategory(id: $id) {
-//         products(first: 500) {
-//           nodes {
-//             ... on WordPress_SimpleProduct {
-//               id
-//               name
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
 
 export default ShowProduct

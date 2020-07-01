@@ -12,7 +12,7 @@ const ProductCatTemplate = (data) => {
             </div>
             <div>
                 <h2> PRODUCT </h2>
-                <ShowProduct data = {products}/>                
+                <ShowProduct productsData = {products}/>                
             </div>
         </div>
     )
