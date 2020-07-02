@@ -113,6 +113,7 @@ exports.createPages = async ({ graphql, actions }) => {
             path: deCode,
             component: PageTemplate,
             context: edge,
+            id: "dGVybToxMDMx"
           })
         })
 
