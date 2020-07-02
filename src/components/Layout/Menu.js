@@ -1,6 +1,33 @@
 import React from "react"
 import { graphql, StaticQuery, Link } from 'gatsby'
+import styled from 'styled-components'
 
+
+
+const UlMain = styled.ul`
+    display:flex;
+    flex-wrap:wrap;
+    float:right;
+    li{
+        :hover{
+            ul {
+                display: block;
+            }
+        }
+        ul{
+            text-decoration:none;
+            display:none;
+            position: absolute;
+            z-index: 1;
+            li a{
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+        }
+    }
+`
 // console.log(process.env.GATSBY_API_URL)
 const MENU_QUERY = graphql`
  {
@@ -46,10 +73,9 @@ const Menu = () => (
                             return '/'
                         }
                      }
-                    //  console.log(checkUrl())
                         return(
                             <div>
-                                <ul>
+                                <UlMain>
                                     <li>
                                         <Link key = {item.id} to = {checkUrl()} > {item.label} </Link>
                                         {item.childItems.nodes.map(child => {
@@ -71,7 +97,7 @@ const Menu = () => (
                                             )
                                         })}
                                     </li>
-                                </ul>
+                                </UlMain>
                             </div>
                         )
                     })}

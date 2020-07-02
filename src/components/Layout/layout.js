@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-    {/* <Menu/> */}
+    <Menu/>
       <div>
         <main>{children}</main>
       </div>
