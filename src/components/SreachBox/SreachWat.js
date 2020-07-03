@@ -30,23 +30,8 @@ const SearchWat = () => {
       }
     }
   `)
-  const [DropDown, setDrop] = useState(true)
+  const [DropDown, setDrop] = useState(false)
   console.log(DropDown)
-  // console.log(data)
-  // const DataCat = data.wordPress.productCategories.nodes.map(items => items)
-  // console.log(DataCat.map(NameItem => NameItem))
-  // const found = DataCat.find(function (element) {
-  //   console.log(element)
-  // });
-  // const found = (element) => {
-  //   DataCat.find((items) => {
-  //     if(element === items) {
-  //       console.log('yes')
-  //     }else{
-  //       console.log('no')
-  //     }
-  //   })
-  // }
   return (
     <div>
       <button onClick = {() => { setDrop(!DropDown) }} > เลือกเขต </button>

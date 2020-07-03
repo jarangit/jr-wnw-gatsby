@@ -9,8 +9,13 @@ import SearchWat from "../components/SreachBox/SreachWat"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <p> this content </p>
-    <SearchWat/>
+    <div>
+    <div> this content </div>
+    <div> this content </div>
+    <div> this content </div>
+    <div> this content </div>
+          <SearchWat/>
+    </div>
   </Layout>
 )
 
