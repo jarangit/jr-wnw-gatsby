@@ -1,10 +1,11 @@
 import React from 'react'
 import ShowProduct from '../components/Product/ShowProduct'
+import Layout from '../components/Layout/layout'
 
 const ProductCatTemplate = (data) => {
     const {id, name, slug, products, description} = data.pageContext
     return(
-        <div>
+        <Layout>
             <div>
                 <h1> {name} </h1>
                 <div dangerouslySetInnerHTML={{__html: description}}/>
@@ -13,7 +14,7 @@ const ProductCatTemplate = (data) => {
                 <h2> PRODUCT </h2>
                 <ShowProduct productsData = {products}/>                
             </div>
-        </div>
+        </Layout>
     )
 }
 

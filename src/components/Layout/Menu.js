@@ -76,7 +76,9 @@ const Menu = () => (
             
             return(
                 <MenuSty>
-                    <MenuLogo>LOGO</MenuLogo>
+                    <MenuLogo>
+                    <Link to = "/" > LOGO </Link>
+                    </MenuLogo>
                     <MenuItem>
                         <div>
                         <UlMain>

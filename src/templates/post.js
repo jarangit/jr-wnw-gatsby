@@ -1,14 +1,15 @@
 import React from 'react'
+import Layout from '../components/Layout/layout'
 
 const PostTemplate  = (data) => {
     // console.log(data)
     const {title, slug, id, content} = data.pageContext
     return(
-        <div>
+        <Layout>
             this post
             <div dangerouslySetInnerHTML={{__html: title}}/>
             <div dangerouslySetInnerHTML={{__html: content}}/>
-        </div>
+        </Layout>
     )
 }
 export default PostTemplate 

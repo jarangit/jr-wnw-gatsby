@@ -10,10 +10,6 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <div>
-    <div> this content </div>
-    <div> this content </div>
-    <div> this content </div>
-    <div> this content </div>
           <SearchWat/>
     </div>
   </Layout>
