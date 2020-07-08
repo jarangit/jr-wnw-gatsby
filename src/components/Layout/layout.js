@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
   return (
     <>
     <Menu/>
-      <div>
+      <div className = "container">
         <main>{children}</main>
       </div>
       <Footer/>

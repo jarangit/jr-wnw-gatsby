@@ -1,8 +1,19 @@
 body,html{
   padding: 0 ;
   margin: 0 ; 
-  height: 100%; 
+  height: 100%;
+  font-family: 'Prompt', sans-serif;
 }
 a {
   text-decoration: none;
+  color: #917d78;
+}
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h1 ,h2 ,h3 ,h4 ,h5 ,h6,p {
+  padding: 0;
+  margin: 15px 0;
 }

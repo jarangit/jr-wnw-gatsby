@@ -9,7 +9,9 @@ const FooterSty = styled.div`
     color: #C6AFA9;
     text-align: center;
     hr{
-        border-top: 1px solid #C6AFA9;
+        max-width: 1024px;
+        margin: 0 auto;
+        border-top: 0.1px solid #C6AFA9;
     }
 `
 const BoxImgItems = styled.div`
@@ -17,16 +19,16 @@ const BoxImgItems = styled.div`
     border-style: none solid none none;
     width: 100px;
     padding: 0px;
-    height: 58px;
+    height: 100px;
     padding: 0 20px;
     img{
-        margin: 0;
+        /* margin: 0; */
         width: 100%;
     }
 `
 const BoxImgPay = styled.div`
     display: flex;
-    margin: 0 20px;
+    margin: 30px 20px;
     justify-content: center;
 `
 
@@ -121,8 +123,9 @@ const Footer = () => (
                    </BoxImgPay>
 
 
-                    <p>copyright 2014 - 2018 ร้านพวงหรีด "หรีด ณ วัด" | Privacy Policy By App-Bit Studio - Digital Marketing Agency</p>
-
+                <div>
+                    copyright 2014 - 2018 ร้านพวงหรีด "หรีด ณ วัด" | Privacy Policy By App-Bit Studio - Digital Marketing Agency
+                </div>
 
                 </FooterSty>
             )

@@ -6,6 +6,8 @@ import styled from 'styled-components'
 
 const MenuItem = styled.div`
     display: flex;
+    justify-content: space-between;
+
 `
 const MenuLogo = styled.div`
     text-align: center;    
@@ -18,17 +20,17 @@ const MenuSty = styled.div`
     width: 100%;
     justify-content: space-around;
     div{
-        margin: 0 auto;
+        /* margin: 0 auto; */
     }
 
 `
 const UlMain = styled.ul`
     margin: 0 auto;
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
     li {
         display: inline;
-        padding: 0 10px ;
+        padding-right:10px ;
         a{
             color: black;
             text-decoration:none;
@@ -79,7 +81,7 @@ const Menu = () => (
                     <MenuLogo>
                     <Link to = "/" > LOGO </Link>
                     </MenuLogo>
-                    <MenuItem>
+                    <MenuItem  className ="container">
                         <div>
                         <UlMain>
                             {data.wordPress.menu.menuItems.nodes.map(item => {
