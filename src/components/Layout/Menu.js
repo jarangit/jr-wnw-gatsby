@@ -1,9 +1,12 @@
 import React from "react"
 import { graphql, StaticQuery, Link } from 'gatsby'
 import styled from 'styled-components'
+import {Lock} from '@styled-icons/material/Lock'
 
 
-
+const Logo = styled.img`
+    width: 150px;
+`
 const MenuItem = styled.div`
     display: flex;
     justify-content: space-between;
@@ -13,7 +16,7 @@ const MenuLogo = styled.div`
     text-align: center;    
     background: black;
     color: #C6AFA9;
-    padding: 20px;
+    /* padding: 20px; */
 `
 const MenuSty = styled.div`
     background: #C6AFA9;
@@ -79,7 +82,9 @@ const Menu = () => (
             return(
                 <MenuSty>
                     <MenuLogo>
-                    <Link to = "/" > LOGO </Link>
+                    <Link to = "/" >
+                        <Logo src ="https://api-jr-wnw.dev-app-bit.com/wp-content/uploads/2020/07/Wreathnawat_Logo-Horizontal-White.png" />
+                    </Link>
                     </MenuLogo>
                     <MenuItem  className ="container">
                         <div>
@@ -122,8 +127,7 @@ const Menu = () => (
                         </UlMain>
                         </div>
                         <div>
-                                <div>icon1</div>
-                                <div>icon2</div>
+                                 <Lock/>  
                         </div>
                     </MenuItem>
                 </MenuSty>

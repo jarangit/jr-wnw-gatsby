@@ -2,8 +2,9 @@ import React from "react"
 import styled from 'styled-components'
 import { graphql, StaticQuery, Link } from 'gatsby'
 
-
-
+const Logo = styled.img`
+    width: 150px;
+`
 const FooterSty = styled.div`
     background-color: black;
     color: #C6AFA9;
@@ -70,7 +71,9 @@ const Footer = () => (
                 <FooterSty>
 
                     <div>
-                        <Link to = "/" > LOGO </Link>
+                        <Link to = "/" >
+                            <Logo src ="https://api-jr-wnw.dev-app-bit.com/wp-content/uploads/2020/07/Wreathnawat_Logo-Horizontal-White.png" />
+                        </Link>
                     </div>
 
                     <hr/>
