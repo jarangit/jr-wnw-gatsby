@@ -1,7 +1,8 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { graphql, StaticQuery, Link } from 'gatsby'
 import styled from 'styled-components'
-import {Lock} from '@styled-icons/material/Lock'
+import { ShoppingCart } from '@styled-icons/zondicons/ShoppingCart'
+import { ChatBubbleDots } from '@styled-icons/zondicons/ChatBubbleDots'
 
 
 const Logo = styled.img`
@@ -44,7 +45,18 @@ const UlMain = styled.ul`
     }
 
 `
-// console.log(process.env.GATSBY_API_URL)
+const MenuIcon = styled.div`
+    ul{
+        padding: 0;
+        li{
+            display: inline;
+            margin: 0 5px;
+            a{
+                color: black;
+            }
+        }
+    }
+`
 const MENU_QUERY = graphql`
  {
   wordPress {
@@ -126,9 +138,13 @@ const Menu = () => (
                         })}
                         </UlMain>
                         </div>
-                        <div>
-                                 <Lock/>  
-                        </div>
+                        <MenuIcon>
+                            <ul>
+                                <li> <Link to = "/"> <ShoppingCart  size="25"/> </Link> </li>
+                                <li> | </li>
+                                <li> <Link to = "/"> <ChatBubbleDots  size="25"/> </Link> </li>
+                            </ul>
+                        </MenuIcon>
                     </MenuItem>
                 </MenuSty>
             )

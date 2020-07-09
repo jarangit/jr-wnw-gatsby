@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import ReactSearchBox from 'react-search-box'
 import styled from 'styled-components'
@@ -30,8 +30,26 @@ const SearchWat = () => {
       }
     }
   `)
+  
   const [DropDown, setDrop] = useState(false)
-  console.log(DropDown)
+  const [DataCounty, setDataCounty] = useState()
+
+
+  useEffect(() => {
+    const setArr = [{key: '', value: '',}]
+    const MapData = async () => {
+      data.wordPress.productCategories.nodes.map(County => {
+        setArr.push({key: County.name, value: County.name,})
+      })
+      await setDataCounty(setArr)
+    }
+    MapData()
+  },[])
+
+  const GoCounty = (e) => {
+    window.location.href = `/ร้านพวงหรีด/${e}`;
+  }
+  console.log(DataCounty)
   return (
     <div>
       <button onClick = {() => { setDrop(!DropDown) }} > เลือกเขต </button>
@@ -46,6 +64,14 @@ const SearchWat = () => {
           )
         }
       })}
+      <div>
+      <ReactSearchBox
+        placeholder="เลือกพื้นที่เขต"
+        data={DataCounty}
+        onSelect = {record => GoCounty(record.value)}
+        callback={record => console.log(record)}
+      />
+      </div>
     </div>
   )
 }
