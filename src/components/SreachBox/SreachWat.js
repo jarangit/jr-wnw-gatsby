@@ -23,6 +23,9 @@ const SearchBox = styled.div`
 const SearchSty = styled.div`
   display: flex;
   justify-content: space-between;
+  div{
+    margin: 0 10px;
+  }
 
 `
 const SearchBottom = styled.button`
@@ -70,6 +73,8 @@ const SearchWat = () => {
   const [dataDate, setDate] = useState(new Date())
   const [DataCounty, setDataCounty] = useState()
   const [ShowTime, setShowTime] = useState(false)
+  const [ValSearch, setValSearch] = useState('')
+  const [ValTime, setValTime] = useState('เลือกเวลาจัดส่ง')
 
 
   useEffect(() => {
@@ -84,10 +89,17 @@ const SearchWat = () => {
   },[])
 
   const GoCounty = (e) => {
-    window.location.href = `/ร้านพวงหรีด/${e}`;
+    if(ValSearch !== '' && ValTime !== 'เลือกเวลาจัดส่ง'){
+      window.location.href = `/ร้านพวงหรีด/${ValSearch}`;
+    }else{
+      alert("no")
+    }
   }
 
-
+  const SelectTime = (e) => {
+    setValTime(e)
+    setShowTime(false)
+  }
 
   return (
    <SearchSty className = 'container'>
@@ -96,7 +108,7 @@ const SearchWat = () => {
         <ReactSearchBox
         placeholder="เลือกพื้นที่เขต"
         data={DataCounty}
-        onSelect = {record => GoCounty(record.value)}
+        onSelect = {record => setValSearch(record.value)}
         callback={record => console.log(record)}
         inputBoxFontColor = '#917d78'
         // inputBoxBorderColor = 'white'
@@ -111,20 +123,23 @@ const SearchWat = () => {
         </div>
         <ButTime show = {ShowTime}>
           <div>
-          <Clock size = '25' color = '#C6AFA9'/>
-          <button onClick = {() => {setShowTime(!ShowTime)}}> 
-            เลือกเวลาจัดส่ง <TriangleDown size = '15'/> 
-          </button>
+              <Clock size = '25' color = '#C6AFA9'/>
+          </div>
+          <div>
+            <button onClick = {() => {setShowTime(!ShowTime)}}> 
+              {ValTime} 
+              <TriangleDown size = '15'/> 
+            </button>
           </div>
          <ul>
-           <li>jaran</li>
-           <li>jaran</li>
-           <li>jaran</li>
-           <li>jaran</li>
+           <li onClick = {(e) => SelectTime(e.target.textContent)}>16:00 น</li>
+           <li onClick = {(e) => SelectTime(e.target.textContent)}>17:00 น</li>
+           <li onClick = {(e) => SelectTime(e.target.textContent)}>18:00 น</li>
+           <li onClick = {(e) => SelectTime(e.target.textContent)}>19:00 น</li>
          </ul>
         </ButTime>
         <div>
-          <SearchBottom> ค้นหาพวงหรีด </SearchBottom>
+          <SearchBottom onClick = {GoCounty}> ค้นหาพวงหรีด </SearchBottom>
         </div>
    </SearchSty>
   )
