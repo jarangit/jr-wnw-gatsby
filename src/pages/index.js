@@ -24,6 +24,19 @@ const IndexPage = () => (
       </TextTitle>
       <SearchWat/>
       <ProductHome/>
+      <img src = 'https://api-jr-wnw.dev-app-bit.com/wp-content/uploads/2020/07/freesnippingtool.com_capture_25630710160309.png' width = '1200'/>
+      <div>
+        <h1>วิธีการสั่งซื้อ</h1>
+        <img src = 'https://api-jr-wnw.dev-app-bit.com/wp-content/uploads/2020/07/freesnippingtool.com_capture_25630710161009.png' width = '1200'/>
+      </div>
+      <div>
+        <h1>รีวิวจากลูกค้า</h1>
+        <h1> NO DATA </h1>
+      </div>
+      <div>
+        <h1>ลูกค้าที่ไว้วางใจ</h1>
+        <h1> NO DATA </h1>
+      </div>
     </div>
   </Layout>
 )

@@ -10,9 +10,10 @@ const FooterSty = styled.div`
     color: #C6AFA9;
     text-align: center;
     hr{
-        max-width: 1024px;
+        max-width: 100%;
         margin: 0 auto;
         border-top: 0.1px solid #C6AFA9;
+        margin: 0px;
     }
 `
 const BoxImgItems = styled.div`
@@ -32,7 +33,20 @@ const BoxImgPay = styled.div`
     margin: 30px 20px;
     justify-content: center;
 `
-
+const FooterMenu = styled.div`
+    /* height: 100px; */
+    /* width: 200px; */
+    text-align: left;
+    ul{
+        flex-direction: column;
+        li{
+            width: 500px;
+            padding: 5px;
+            display: inline-block;
+            list-style:none;
+        }
+    }
+`
 
 
 const MENU_QUERY = graphql`
@@ -68,7 +82,7 @@ const Footer = () => (
         render={data => {
             console.log(data)
             return(
-                <FooterSty>
+                <FooterSty >
 
                     <div>
                         <Link to = "/" >
@@ -76,9 +90,9 @@ const Footer = () => (
                         </Link>
                     </div>
 
-                    <hr/>
 
-                    <div>
+                    <FooterMenu className = "container">
+                    <hr/>
                         <ul>
                             {data.wordPress.menu.menuItems.nodes.map(item => {
                             const checkUrl = () =>{
@@ -100,11 +114,11 @@ const Footer = () => (
                             }
                         })}
                         </ul>
-                    </div>
+                    </FooterMenu>
                     
 
 
-                   <BoxImgPay>
+                   {/* <BoxImgPay>
                    <BoxImgItems>
                         <img src = "https://api-jr-wnw.dev-app-bit.com/wp-content/uploads/2016/11/citibank.jpg" />
                     </BoxImgItems>
@@ -123,7 +137,7 @@ const Footer = () => (
                    <BoxImgItems>
                         <img src = "https://api-jr-wnw.dev-app-bit.com/wp-content/uploads/2016/11/citibank.jpg" />
                     </BoxImgItems>
-                   </BoxImgPay>
+                   </BoxImgPay> */}
 
 
                 <div>
