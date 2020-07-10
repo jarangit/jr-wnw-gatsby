@@ -3,7 +3,8 @@ import { Link } from "gatsby"
 import Layout from "../components/Layout/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-import SearchWat from "../components/SreachBox/SreachWat"
+import SearchWat from "../components/HomePage/SreachWat"
+import ProductHome from "../components/HomePage/Product/ProductHome"
 import styled from 'styled-components'
 
 const TextTitle = styled.div`
@@ -21,7 +22,8 @@ const IndexPage = () => (
         <h3>สัญลักษณ์แห่งการอาลัยครั้งสุดท้าย</h3>
         <p>จัดส่งกรุงเทพ ฟรี ค่าจัดส่ง 300 บาท</p>
       </TextTitle>
-          <SearchWat/>
+      <SearchWat/>
+      <ProductHome/>
     </div>
   </Layout>
 )
