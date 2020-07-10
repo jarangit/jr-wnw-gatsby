@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import ReactSearchBox from 'react-search-box'
 import styled from 'styled-components'
@@ -14,17 +14,24 @@ import { ThemeProvider } from "styled-components";
 
 
 const SearchBox = styled.div`
-  max-width: 312px;
+  max-width: 200px;
   display: flex;
   div{
-    margin: 0 10px;
+    margin:0;
+  }
+  #searchbox {
+    border-bottom: 2px solid #512825;
   }
 `
 const SearchSty = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   div{
-    margin: 0 10px;
+    align-items: baseline;
+    /* margin: 0 10px; */
   }
 
 `
@@ -52,6 +59,14 @@ const ButTime = styled.div`
         return 'inline-block'
       }
     }};
+    li{
+      padding: 3px;
+      list-style: none;
+      border-radius: 0.2em;
+      :hover{
+        background: gray;
+      }
+    }
   }
 `
 
@@ -102,18 +117,28 @@ const SearchWat = () => {
   }
 
   return (
-   <SearchSty className = 'container'>
+   <SearchSty>
       <SearchBox>
-        <HomeWork size = '25' color = '#C6AFA9'/>
-        <ReactSearchBox
-        placeholder="เลือกพื้นที่เขต"
-        data={DataCounty}
-        onSelect = {record => setValSearch(record.value)}
-        callback={record => console.log(record)}
-        inputBoxFontColor = '#917d78'
-        // inputBoxBorderColor = 'white'
-        />
+        <div>
+            <HomeWork size = '25'color = '#C6AFA9' />
+        </div>
+        <div>
+           <ReactSearchBox
+            id = 'searchbox'
+            placeholder="เลือกพื้นที่เขต"
+            data={DataCounty}
+            onSelect = {record => setValSearch(record.value)}
+            callback={record => console.log(record)}
+            inputBoxFontColor = '#917d78'
+            inputBoxHeight = '25px'
+            inputBoxBorderColor = 'white'
+            dropDownBorderColor = 'white'
+            />
+        </div>
         </SearchBox>
+
+
+        
         <div>
           <Calendar size = '25' color = '#C6AFA9'/>
           <DatePicker
@@ -121,23 +146,27 @@ const SearchWat = () => {
                       onChange={(date) => {setDate(date)}}
                   />
         </div>
+
+
         <ButTime show = {ShowTime}>
           <div>
               <Clock size = '25' color = '#C6AFA9'/>
-          </div>
-          <div>
             <button onClick = {() => {setShowTime(!ShowTime)}}> 
               {ValTime} 
               <TriangleDown size = '15'/> 
             </button>
+            <div>
+               <ul>
+                  <li onClick = {(e) => SelectTime(e.target.textContent)}>16:00 น</li>
+                  <li onClick = {(e) => SelectTime(e.target.textContent)}>17:00 น</li>
+                  <li onClick = {(e) => SelectTime(e.target.textContent)}>18:00 น</li>
+                  <li onClick = {(e) => SelectTime(e.target.textContent)}>19:00 น</li>
+              </ul>
+            </div>
           </div>
-         <ul>
-           <li onClick = {(e) => SelectTime(e.target.textContent)}>16:00 น</li>
-           <li onClick = {(e) => SelectTime(e.target.textContent)}>17:00 น</li>
-           <li onClick = {(e) => SelectTime(e.target.textContent)}>18:00 น</li>
-           <li onClick = {(e) => SelectTime(e.target.textContent)}>19:00 น</li>
-         </ul>
         </ButTime>
+
+
         <div>
           <SearchBottom onClick = {GoCounty}> ค้นหาพวงหรีด </SearchBottom>
         </div>
