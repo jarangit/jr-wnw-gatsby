@@ -6,8 +6,10 @@ const PageTemplate  = (data) => {
     const {title, slug, id, content} = data.pageContext
     return(
         <Layout>
-            <div dangerouslySetInnerHTML={{__html: title}}/>
-            <div dangerouslySetInnerHTML={{__html: content}}/>
+            <div className = "container">
+                <div dangerouslySetInnerHTML={{__html: title}}/>
+                <div dangerouslySetInnerHTML={{__html: content}}/>
+            </div>
         </Layout>
     )
 }

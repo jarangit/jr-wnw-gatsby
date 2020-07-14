@@ -5,7 +5,18 @@ import { useStaticQuery, graphql } from "gatsby"
 import "./layout.css"
 import Menu from './Menu'
 import Footer from "./Footer"
+import { createGlobalStyle } from 'styled-components'
 
+
+
+
+const GlobalStyle = createGlobalStyle`
+  .jr-navigation-product-single{
+    padding: 20px 0;
+    border: 1px solid #e2e2e2;
+    color: #C6AFA9;
+  }
+`
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -19,8 +30,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
+    <GlobalStyle/>
     <Menu/>
-      <div className = "container">
+      <div>
         <main>{children}</main>
       </div>
       <Footer/>

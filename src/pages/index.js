@@ -16,7 +16,7 @@ const TextTitle = styled.div`
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <div>
+    <div className="container">
       <TextTitle>
         <h1>“พวงหรีด”</h1>
         <h3>สัญลักษณ์แห่งการอาลัยครั้งสุดท้าย</h3>

@@ -6,9 +6,10 @@ const PostTemplate  = (data) => {
     const {title, slug, id, content} = data.pageContext
     return(
         <Layout>
-            this post
-            <div dangerouslySetInnerHTML={{__html: title}}/>
-            <div dangerouslySetInnerHTML={{__html: content}}/>
+            <div className = "container">
+                <div dangerouslySetInnerHTML={{__html: title}}/>
+                <div dangerouslySetInnerHTML={{__html: content}}/>
+            </div>
         </Layout>
     )
 }
