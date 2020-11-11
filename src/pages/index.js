@@ -15,7 +15,9 @@ const TextTitle = styled.div`
   }
 `
 const IndexPage = () => (
-  <Layout>
+  <div>
+  </div>
+  {/*<Layout>
     <SEO title="Home" />
    <Helmet>
     <meta name="robots" content="noindex,nofollow" />
@@ -42,7 +44,7 @@ const IndexPage = () => (
         <h1> NO DATA </h1>
       </div>
     </div>
-  </Layout>
+  </Layout>*/}
 )
 
 export default IndexPage
