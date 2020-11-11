@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import SearchWat from "../components/HomePage/SreachWat"
 import ProductHome from "../components/HomePage/Product/ProductHome"
 import styled from 'styled-components'
+import { Helmet } from "react-helmet"
 
 const TextTitle = styled.div`
   text-align: center;
@@ -16,6 +17,9 @@ const TextTitle = styled.div`
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
+   <Helmet>
+    <meta name="robots" content="noindex,nofollow" />
+        </Helmet>
     <div className="container">
       <TextTitle>
         <h1>“พวงหรีด”</h1>
